@@ -1,0 +1,28 @@
+import { useState } from "react";
+import CountUp from "react-countup";
+import ScrollTrigger from "react-scroll-trigger";
+
+type TCounerTypes = {
+  start: number;
+  end: number;
+};
+// type TTriggerTypes = {
+//   onExit?: boolean,
+//   onEnter?: boolean
+// }
+
+const CounterScroller = ({ start, end }: TCounerTypes) => {
+  const [counterOn, setCounterOn] = useState(false);
+  return (
+    <div className="text-center text-5xl my-12">
+      <ScrollTrigger
+        onEnter={() => setCounterOn(true)}
+        onExit={() => setCounterOn(true)}
+      >
+        {counterOn && <CountUp start={start} end={end} duration={1}></CountUp>}
+      </ScrollTrigger>
+    </div>
+  );
+};
+
+export default CounterScroller;

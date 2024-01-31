@@ -19,6 +19,7 @@
     --gray: 216 91% 47%;
     --light-gray: 210 11% 96%;
     --dark-gray: 215 25% 27%;
+    --blue-gray: 215 25% 27%;
 
     --secondary: 216 82% 13%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -80,4 +81,66 @@
   .service-icon {
     @apply text-green-400 text-2xl mt-[5px] w-5 h-5 bg-white rounded-full;
   }
+  .rigng-design {
+    @apply size-32 flex items-center justify-center shadow-sm border-2 border-light-gray rounded-full;
+  }
+}
+
+.setBackImage {
+  background-image: url(./assets//Images/newslatter.avif);
+  background-position: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.setBackImage::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.705);
+  z-index: 2;
+}
+.setBackImage .flex {
+  z-index: 5;
+}
+
+/* scroll bar progress  */
+progress {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 45px;
+  right: 25px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: grid;
+  place-items: center;
+  z-index: 9;
+  transition: all 3ms;
+}
+
+#progress-value {
+  display: block;
+  height: calc(100% - 5px);
+  width: calc(100% - 5px);
+  background-color: #141410;
+  border-radius: 50%;
+  display: grid;
+  color: white;
+  place-items: center;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 22px;
+  z-index: 9;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
 }
