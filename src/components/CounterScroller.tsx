@@ -19,7 +19,11 @@ const CounterScroller = ({ start, end }: TCounerTypes) => {
         onEnter={() => setCounterOn(true)}
         onExit={() => setCounterOn(true)}
       >
-        {counterOn && <CountUp start={start} end={end} duration={1}></CountUp>}
+        {counterOn ? (
+          <CountUp start={start} end={end} duration={1}></CountUp>
+        ) : (
+          0
+        )}
       </ScrollTrigger>
     </div>
   );
