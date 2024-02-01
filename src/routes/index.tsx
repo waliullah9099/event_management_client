@@ -1,6 +1,8 @@
+import AdminLayout from "@/layouts/AdminLayout";
 import MainLayout from "@/layouts/MainLayout";
+import Dashboard from "@/pages/Admin/Dashboard";
 import Home from "@/pages/Home/Home";
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
@@ -10,6 +12,28 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+    ],
+  },
+  {
+    path: "/admin",
+    element: <AdminLayout />,
+    children: [
+      {
+        index: true,
+        element: <Navigate to="dashboard" />,
+      },
+      {
+        path: "dashboard",
+        element: <Dashboard />,
+      },
+      {
+        path: "events",
+        element: <h1>events</h1>,
+      },
+      {
+        path: "services",
+        element: <h1>servicer</h1>,
       },
     ],
   },
