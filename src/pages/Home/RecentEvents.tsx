@@ -1,4 +1,4 @@
-import Container from "@/components/Container";
+import Container from "@/components/shared/Container";
 import { Button } from "@/components/ui/button";
 import image1 from "../../assets/Images/event//Rectangle 181.png";
 import image2 from "../../assets/Images/event/Rectangle 182.png";

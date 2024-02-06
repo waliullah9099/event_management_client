@@ -1,5 +1,5 @@
-import Container from "@/components/Container";
-import CounterScroller from "@/components/CounterScroller";
+import Container from "@/components/shared/Container";
+import CounterScroller from "@/components/shared/CounterScroller";
 
 const Info = () => {
   return (

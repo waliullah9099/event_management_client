@@ -1,5 +1,5 @@
-import Container from "@/components/Container";
-import TittleSection from "@/components/TittleSection";
+import Container from "@/components/shared/Container";
+import TittleSection from "@/components/shared/TittleSection";
 
 const Price = () => {
   return (

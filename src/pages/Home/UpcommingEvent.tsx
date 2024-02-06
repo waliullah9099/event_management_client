@@ -1,4 +1,4 @@
-import Container from "@/components/Container";
+import Container from "@/components/shared/Container";
 import image from "../../assets/Images/Photo.png";
 import { Database } from "lucide-react";
 

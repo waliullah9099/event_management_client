@@ -1,5 +1,5 @@
-import Container from "@/components/Container";
-import TittleSection from "@/components/TittleSection";
+import Container from "@/components/shared/Container";
+import TittleSection from "@/components/shared/TittleSection";
 import image1 from "../../assets/Images/eventItems/Rectangle 2989 (1).png";
 import image2 from "../../assets/Images/eventItems/Rectangle 2989 (2).png";
 import image3 from "../../assets/Images/eventItems/Rectangle 2989 (3).png";
