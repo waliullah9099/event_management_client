@@ -9,8 +9,8 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Edit, Trash2 } from "lucide-react";
-import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 type TEventType = {
   _id: HTMLFormElement;
@@ -18,7 +18,7 @@ type TEventType = {
   image: string;
 };
 
-const Events = () => {
+const RecetnEvents = () => {
   const [events, setEvents] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/api/events")
@@ -56,9 +56,9 @@ const Events = () => {
             Go To Home
           </Button>
         </Link>
-        <Link to="/admin/add-event">
+        <Link to="/admin/add-recent-event">
           <Button className="text-xl py-6 px-8" variant={"outline"}>
-            Add Event
+            Add Recent Event
           </Button>
         </Link>
       </div>
@@ -100,4 +100,4 @@ const Events = () => {
   );
 };
 
-export default Events;
+export default RecetnEvents;

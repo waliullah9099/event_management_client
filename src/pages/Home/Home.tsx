@@ -19,8 +19,8 @@ const Home = () => {
       </div>
       <Services />
       <Events />
-      <Price />
       <Test />
+      <Price />
       <Gallery />
       <RecentEvents />
       <UpcommingEvent />

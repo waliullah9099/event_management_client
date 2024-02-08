@@ -1,11 +1,25 @@
 import Container from "@/components/shared/Container";
 import TittleSection from "@/components/shared/TittleSection";
-import image1 from "../../assets/Images/Services/1.png";
-import image2 from "../../assets/Images/Services/2.png";
 import { IoIosCheckmark } from "react-icons/io";
-import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
+
+type TServiceType = {
+  _id: string;
+  title: string;
+  image: string;
+  description: string[];
+};
 
 const Services = () => {
+  const [services, setServices] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/api/services")
+      .then((res) => res.json())
+      .then((data) => {
+        setServices(data.data);
+      });
+  }, []);
+
   return (
     <Container className="my-6">
       <TittleSection
@@ -16,43 +30,44 @@ const Services = () => {
       />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-2">
-        <div
-          data-aos="flip-left"
-          data-aos-easing="ease-out-cubic"
-          data-aos-duration="1000"
-          className="bg-gradient-to-b from-light-gray to-[#fafafa] shadow-sm rounded-sm px-5 py-8"
-        >
-          <img src={image1} alt="" />
-          <div>
-            <h2 className="text-black font-bold text-3xl my-6">
-              Corporate event
-            </h2>
+        {services.slice(0, 3).map((service: TServiceType) => (
+          <div
+            key={service._id}
+            data-aos="flip-left"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="1000"
+            className="bg-gradient-to-b from-light-gray to-[#fafafa] shadow-sm rounded-sm px-5 py-8"
+          >
+            <img src={service.image} alt="" />
             <div>
-              <div className="flex items-center gap-2 mb-2">
-                <IoIosCheckmark className="service-icon" />{" "}
-                <span>One day pas access all lecture</span>
-              </div>
-              <div className="flex items-center gap-2 mb-2">
-                <IoIosCheckmark className="service-icon" />{" "}
-                <span>Lunch and Snack</span>
-              </div>
-              <div className="flex items-center gap-2 mb-2">
-                <IoIosCheckmark className="service-icon" />{" "}
-                <span>Meet Event Speaker</span>
-              </div>
-              <div className="flex items-center gap-2 mb-2">
-                <IoIosCheckmark className="service-icon" />{" "}
-                <span>Front Seat</span>
-              </div>
-              <div className="flex items-center gap-2 mb-2">
-                <IoIosCheckmark className="service-icon" />{" "}
-                <span>One day pas access all lecture</span>
+              <h2 className="text-black font-bold text-3xl my-6">
+                {service.title}
+              </h2>
+              <div>
+                {service.description.map((item, index) => (
+                  <div key={index} className="flex items-center gap-2 mb-2">
+                    <IoIosCheckmark className="service-icon" />{" "}
+                    <span>{item}</span>
+                  </div>
+                ))}
+                {/* <div className="flex items-center gap-2 mb-2">
+                  <IoIosCheckmark className="service-icon" />{" "}
+                  <span>Meet Event Speaker</span>
+                </div>
+                <div className="flex items-center gap-2 mb-2">
+                  <IoIosCheckmark className="service-icon" />{" "}
+                  <span>Front Seat</span>
+                </div>
+                <div className="flex items-center gap-2 mb-2">
+                  <IoIosCheckmark className="service-icon" />{" "}
+                  <span>One day pas access all lecture</span>
+                </div> */}
               </div>
             </div>
           </div>
-        </div>
+        ))}
 
-        <div
+        {/* <div
           data-aos="flip-left"
           data-aos-easing="ease-out-cubic"
           data-aos-duration="1000"
@@ -132,7 +147,7 @@ const Services = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </Container>
   );

@@ -27,8 +27,11 @@ const Reviews = () => {
           ornare viverra.
         </p>
       </div>
-      <Slider {...settings}>
-        <div className="p-8 rounded-xl bg-[#FFF9EE] space-y-5 h-[350px]">
+      <Slider {...settings} data-aos="fade-up">
+        <div
+          data-aos="fade-up"
+          className="p-8 rounded-xl bg-[#FFF9EE] space-y-5 h-[350px]"
+        >
           <div className="flex gap-3">
             <img src={image} alt="" />
             <div>
@@ -49,7 +52,10 @@ const Reviews = () => {
           </p>
           <img className="pt-8" src={netflix} alt="" />
         </div>
-        <div className="p-8 rounded-xl bg-[#E7F5E8] space-y-5 h-[350px]">
+        <div
+          data-aos="fade-up"
+          className="p-8 rounded-xl bg-[#E7F5E8] space-y-5 h-[350px]"
+        >
           <div className="flex gap-3">
             <img src={image} alt="" />
             <div>
@@ -69,7 +75,10 @@ const Reviews = () => {
           </p>
           <img className="pt-6" src={google} alt="" />
         </div>
-        <div className="p-8 rounded-xl bg-[#F5F6F7] space-y-5 h-[350px]">
+        <div
+          data-aos="fade-up"
+          className="p-8 rounded-xl bg-[#F5F6F7] space-y-5 h-[350px]"
+        >
           <div className="flex gap-3">
             <img src={image} alt="" />
             <div>
@@ -90,7 +99,10 @@ const Reviews = () => {
           </p>
           <img className="pt-1" src={youtube} alt="" />
         </div>
-        <div className="p-8 rounded-xl bg-[#FFF9EE] space-y-5 h-[350px]">
+        <div
+          data-aos="fade-up"
+          className="p-8 rounded-xl bg-[#FFF9EE] space-y-5 h-[350px]"
+        >
           <div className="flex gap-3">
             <img src={image} alt="" />
             <div>
@@ -111,7 +123,10 @@ const Reviews = () => {
           </p>
           <img className="pt-8" src={netflix} alt="" />
         </div>
-        <div className="p-8 rounded-xl bg-[#E7F5E8] space-y-5 h-[350px]">
+        <div
+          data-aos="fade-up"
+          className="p-8 rounded-xl bg-[#E7F5E8] space-y-5 h-[350px]"
+        >
           <div className="flex gap-3">
             <img src={image} alt="" />
             <div>
@@ -131,7 +146,10 @@ const Reviews = () => {
           </p>
           <img className="pt-6" src={google} alt="" />
         </div>
-        <div className="p-8 rounded-xl bg-[#F5F6F7] space-y-5 h-[350px]">
+        <div
+          data-aos="fade-up"
+          className="p-8 rounded-xl bg-[#F5F6F7] space-y-5 h-[350px]"
+        >
           <div className="flex gap-3">
             <img src={image} alt="" />
             <div>

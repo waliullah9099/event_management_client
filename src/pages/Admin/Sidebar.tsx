@@ -22,6 +22,7 @@ const Sidebar = () => {
           <LayoutDashboardIcon />
           <span className="font-semibold">Dashboard</span>
         </NavLink>
+
         <NavLink
           to="/admin/events"
           className={({ isActive }) =>
@@ -36,8 +37,9 @@ const Sidebar = () => {
           <SiEventstore className="text-xl" />
           <span className="font-semibold">Event</span>
         </NavLink>
+
         <NavLink
-          to="/admin/add-event"
+          to="/admin/recent-events"
           className={({ isActive }) =>
             cn(
               "flex gap-2 items-center bg-gray-400 p-3 rounded-sm hover:bg-dark-gray hover:text-white transition-all",
@@ -48,7 +50,7 @@ const Sidebar = () => {
           }
         >
           <SiEventstore className="text-xl" />
-          <span className="font-semibold">Add Event</span>
+          <span className="font-semibold">Recent Event</span>
         </NavLink>
         <NavLink
           to="/admin/services"
@@ -63,20 +65,6 @@ const Sidebar = () => {
         >
           <GrServices className="text-xl" />
           <span className="font-semibold">Service</span>
-        </NavLink>
-        <NavLink
-          to="/admin/add-service"
-          className={({ isActive }) =>
-            cn(
-              "flex gap-2 items-center bg-gray-400 p-3 rounded-sm hover:bg-dark-gray hover:text-white transition-all",
-              {
-                "bg-dark-gray text-white": isActive,
-              }
-            )
-          }
-        >
-          <GrServices className="text-xl" />
-          <span className="font-semibold">Add Service</span>
         </NavLink>
       </nav>
     </aside>

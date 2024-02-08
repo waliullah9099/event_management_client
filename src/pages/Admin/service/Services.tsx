@@ -9,7 +9,14 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Edit, Trash2 } from "lucide-react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+
+type TServiceType = {
+  _id: HTMLFormElement;
+  title: string;
+  image: string;
+};
 
 const Services = () => {
   const [services, setServices] = useState([]);
@@ -28,7 +35,9 @@ const Services = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          const remaining = services.filter((item) => item._id !== id);
+          const remaining = services.filter(
+            (item: HTMLFormElement) => item._id !== id
+          );
           setServices(remaining);
           toast.success(`service deleted Successfully!`);
         }
@@ -41,6 +50,18 @@ const Services = () => {
 
   return (
     <div className="p-4 border-1 shadow-md">
+      <div className="my-4 space-x-6">
+        <Link to="/">
+          <Button className="text-xl py-6 px-8" variant={"outline"}>
+            Go To Home
+          </Button>
+        </Link>
+        <Link to="/admin/add-service">
+          <Button className="text-xl py-6 px-8" variant={"outline"}>
+            Add Service
+          </Button>
+        </Link>
+      </div>
       <Table className="p-3">
         <TableHeader>
           <TableRow className="text-lg">
@@ -52,7 +73,7 @@ const Services = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {services.map((service, index) => (
+          {services.map((service: TServiceType, index) => (
             <TableRow key={index}>
               <TableCell className="font-medium">{index + 1}</TableCell>
               <TableCell className="text-lg">{service?.title}</TableCell>
@@ -63,7 +84,7 @@ const Services = () => {
                   alt=""
                 />
               </TableCell>
-              <TableCell onClick={() => handleUpdated(service)}>
+              <TableCell onClick={() => handleUpdated(service._id)}>
                 {/* <NavLink to="/admin/update-service"> */}
                 <Edit className="size-8 bg-blue-600 text-white p-2 rounded-sm " />
                 {/* </NavLink> */}

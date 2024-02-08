@@ -1,13 +1,24 @@
 import Container from "@/components/shared/Container";
 import TittleSection from "@/components/shared/TittleSection";
-import image1 from "../../assets/Images/eventItems/Rectangle 2989 (1).png";
-import image2 from "../../assets/Images/eventItems/Rectangle 2989 (2).png";
-import image3 from "../../assets/Images/eventItems/Rectangle 2989 (3).png";
-import image4 from "../../assets/Images/eventItems/Rectangle 2989 (4).png";
-import image5 from "../../assets/Images/eventItems/Rectangle 2989 (5).png";
-import image6 from "../../assets/Images/eventItems/Rectangle 2989.png";
+import { useEffect, useState } from "react";
+
+type TEventType = {
+  _id: HTMLFormElement;
+  title: string;
+  image: string;
+};
 
 const Events = () => {
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/events")
+      .then((res) => res.json())
+      .then((data) => {
+        setEvents(data.data);
+      });
+  }, []);
+
   return (
     <Container className="my-14">
       <TittleSection
@@ -17,30 +28,42 @@ const Events = () => {
       <div className="grid grid-cols-12 gap-3">
         <div className="col-span-12 lg:col-span-8 grid grid-cols-12 gap-3">
           <div className="col-span-6 bg-light-gray rounded-md p-3">
-            <img src={image6} />
+            {events.slice(0, 6).map((item: TEventType, index) => (
+              <div key={index}>{index === 0 && <img src={item.image} />}</div>
+            ))}
             <p className="text-black text-xl pt-2">TED Conference</p>
           </div>
           <div className="col-span-6 bg-light-gray rounded-md p-3">
-            <img src={image1} />
+            {events.slice(0, 6).map((item: TEventType, index: number) => (
+              <div key={index}>{index === 1 && <img src={item.image} />}</div>
+            ))}
             <p className="text-black text-xl pt-2">Super Bowl</p>
           </div>
 
           <div className="col-span-3 bg-light-gray rounded-md p-3">
-            <img src={image5} />
+            {events.slice(0, 6).map((item: TEventType, index) => (
+              <div key={index}>{index === 2 && <img src={item.image} />}</div>
+            ))}
             <p className="text-black text-xl pt-2">Electronics Show</p>
           </div>
           <div className="col-span-3 bg-light-gray rounded-md p-3">
-            <img src={image4} />
+            {events.slice(0, 6).map((item: TEventType, index) => (
+              <div key={index}>{index === 3 && <img src={item.image} />}</div>
+            ))}
             <p className="text-black text-xl pt-2">Oktoberfest</p>
           </div>
           <div className="col-span-6 bg-light-gray rounded-md p-3">
-            <img src={image3} />
+            {events.slice(0, 6).map((item: TEventType, index) => (
+              <div key={index}>{index === 4 && <img src={item.image} />}</div>
+            ))}
             <p className="text-black text-xl pt-4">Tour de France</p>
           </div>
         </div>
 
         <div className="col-span-12 lg:col-span-4 bg-light-gray rounded-md p-3">
-          <img src={image2} />
+          {events.slice(0, 6).map((item: TEventType, index) => (
+            <div key={index}>{index === 5 && <img src={item.image} />}</div>
+          ))}
           <p className="text-black text-xl pt-2">Cannes Festival</p>
         </div>
       </div>
