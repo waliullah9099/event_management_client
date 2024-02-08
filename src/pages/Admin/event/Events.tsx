@@ -45,6 +45,7 @@ const Events = () => {
         <TableRow className="text-lg">
           <TableHead className="">Serial</TableHead>
           <TableHead>Name</TableHead>
+          <TableHead>Image</TableHead>
           <TableHead className="">Edit</TableHead>
           <TableHead className="">Delete</TableHead>
         </TableRow>
@@ -54,6 +55,9 @@ const Events = () => {
           <TableRow key={index}>
             <TableCell className="font-medium">{index + 1}</TableCell>
             <TableCell className="text-lg">{event?.title}</TableCell>
+            <TableCell>
+              <img className="w-12 h-10 rounded-sm" src={event.image} alt="" />
+            </TableCell>
             <TableCell onClick={() => handleUpdated(event)}>
               {/* <NavLink to="/admin/update-event"> */}
               <Edit className="size-8 bg-blue-600 text-white p-2 rounded-sm " />

@@ -16,7 +16,12 @@ const Services = () => {
       />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-2">
-        <div className="bg-gradient-to-b from-light-gray to-[#fafafa] shadow-sm rounded-sm px-5 py-8">
+        <div
+          data-aos="flip-left"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="1000"
+          className="bg-gradient-to-b from-light-gray to-[#fafafa] shadow-sm rounded-sm px-5 py-8"
+        >
           <img src={image1} alt="" />
           <div>
             <h2 className="text-black font-bold text-3xl my-6">
@@ -47,7 +52,12 @@ const Services = () => {
           </div>
         </div>
 
-        <div className="bg-light-gray rounded-sm px-5 py-8">
+        <div
+          data-aos="flip-left"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="1000"
+          className="bg-light-gray rounded-sm px-5 py-8"
+        >
           <div className="flex flex-col justify-between h-full">
             <div>
               <h2 className="text-black font-bold text-3xl -mt-2 mb-5">
@@ -88,7 +98,12 @@ const Services = () => {
           </div>
         </div>
 
-        <div className="bg-gradient-to-b from-light-gray to-[#fafafa] shadow-sm rounded-sm px-5 py-8">
+        <div
+          data-aos="flip-left"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="1000"
+          className="bg-gradient-to-b from-light-gray to-[#fafafa] shadow-sm rounded-sm px-5 py-8"
+        >
           <img src={image2} alt="" />
           <div>
             <h2 className="text-black font-bold text-3xl my-6">

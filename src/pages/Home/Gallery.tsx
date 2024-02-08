@@ -21,23 +21,23 @@ const Gallery = () => {
         decs="Ut posuere felis arcu tellus tempus in in ultricies. Gravida id nibh ornare viverra. Ultrices faucibus neque velit risus ac id lorem.Ut posuere felis arcu tellus tempus in in ultricies. Gravida id nibh ornare viverra. Ultrices faucibus neque velit risus ac id lorem."
       />
       <div className="grid grid-cols-7 w-[98%] justify-center items-center mx-auto py-8 ">
-        <img src={image1} alt="" />
-        <div className="row-span-2 flex items-center">
+        <img data-aos="fade-down-right" src={image1} alt="" />
+        <div data-aos="zoom-out-up" className="row-span-2 flex items-center">
           <img src={image4} alt="" />
         </div>
-        <img src={image5} alt="" />
-        <img src={image8} alt="" />
-        <img src={image10} alt="" />
-        <div className="row-span-2 flex items-center">
+        <img data-aos="fade-up" data-aos-duration="1000" src={image5} alt="" />
+        <img data-aos="fade-up" data-aos-duration="1000" src={image8} alt="" />
+        <img data-aos="fade-up" data-aos-duration="1000" src={image10} alt="" />
+        <div data-aos="zoom-out-up" className="row-span-2 flex items-center">
           <img src={image7} alt="" />
         </div>
-        <img src={image12} alt="" />
-        <img src={image2} alt="" />
-        <img src={image6} alt="" />
-        <img src={image9} alt="" />
-        <img src={image11} alt="" />
+        <img data-aos="fade-up" data-aos-duration="1000" src={image12} alt="" />
+        <img data-aos="fade-up" data-aos-duration="1000" src={image2} alt="" />
+        <img data-aos="fade-up" data-aos-duration="1000" src={image6} alt="" />
+        <img data-aos="fade-up" data-aos-duration="1000" src={image9} alt="" />
+        <img data-aos="fade-up" data-aos-duration="1000" src={image11} alt="" />
 
-        <img src={image13} alt="" />
+        <img data-aos="fade-down-left" src={image13} alt="" />
       </div>
     </Container>
   );

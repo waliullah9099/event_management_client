@@ -10,7 +10,11 @@ import image6 from "../../assets/Images/event/Rectangle 186.png";
 const RecentEvents = () => {
   return (
     <Container className="grid grid-cols-1 lg:grid-cols-2 my-16 items-center">
-      <div className="text-left flex flex-col gap-5">
+      <div
+        data-aos="fade-right"
+        data-aos-anchor-placement="bottom-bottom"
+        className="text-left flex flex-col gap-5"
+      >
         <h1 className="text-secondary font-bold text-4xl">Recent Events</h1>
         <p className="w-10/12 text-lg">
           Ut posuere felis arcu tellus tempus in in ultricies. Gravida id nibh
@@ -18,9 +22,17 @@ const RecentEvents = () => {
           posuere felis arcu tellus tempus in in ultricies. Gravida id nibh
           ornare viverra. Ultrices faucibus neque velit risus ac id lorem.
         </p>
-        <Button className="w-48 h-12 text-lg">Learn More</Button>
+        {/* <div data-aos="zoom-in"> */}
+        <Button data-aos="zoom-in" className="w-48 h-12 text-lg">
+          Learn More
+        </Button>
+        {/* </div> */}
       </div>
-      <div className="grid grid-cols-3 gap-4">
+      <div
+        data-aos="fade-left"
+        data-aos-anchor-placement="top-center"
+        className="grid grid-cols-3 gap-4"
+      >
         <img src={image5} alt="" />
         <img src={image4} alt="" />
         <img src={image1} alt="" />

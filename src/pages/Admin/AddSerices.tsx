@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 type Inputs = {
   title: string;
   items: string;
+  description2: string;
   image: string;
 };
 
@@ -34,8 +35,8 @@ const AddSerices = () => {
       .then((imageRes) => {
         if (imageRes.success) {
           const imgURL = imageRes.data.display_url;
-          const { title } = data;
-          const newItem = { title, description, image: imgURL };
+          const { title, description2 } = data;
+          const newItem = { title, description, description2, image: imgURL };
           console.log(newItem);
 
           fetch("http://localhost:5000/api/services/create-service", {
@@ -102,16 +103,17 @@ const AddSerices = () => {
             <span className="text-sm text-red-400">Items are required</span>
           )}
         </div>
+        <div className="space-y-2">
+          <label className="text-xl">Description</label>
+          <Input
+            id="description2"
+            placeholder="Description2 ( Optional )"
+            {...register("description2")}
+          />
+        </div>
         <div className="space-y-2 ">
           <label className="text-xl">Image</label>
-          <Input
-            id="image"
-            type="file"
-            {...register("image", { required: true })}
-          />
-          {errors.image && (
-            <span className="text-sm text-red-400">Image is required</span>
-          )}
+          <Input id="image" type="file" {...register("image")} />
         </div>
 
         <Button variant="outline" className="shadow-sm">

@@ -4,8 +4,12 @@ import { Database } from "lucide-react";
 
 const UpcommingEvent = () => {
   return (
-    <Container className="grid grid-cols-1 lg:grid-cols-2 my-16 items-center">
-      <div className="text-left flex flex-col gap-5">
+    <Container className="flex flex-col lg:flex-row my-16 items-center">
+      <div
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        className="text-left flex flex-col gap-5"
+      >
         <h1 className="text-secondary font-bold text-4xl">Recent Events</h1>
         <p className="w-11/12 text-lg ">
           Ut posuere felis arcu tellus tempus in in ultricies. Gravida id nibh
@@ -40,7 +44,13 @@ const UpcommingEvent = () => {
           </div>
         </div>
       </div>
-      <img className="h-[80%]" src={image} alt="" />
+      <img
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        className="h-[80%]"
+        src={image}
+        alt=""
+      />
     </Container>
   );
 };

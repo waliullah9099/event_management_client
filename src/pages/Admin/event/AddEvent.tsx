@@ -12,6 +12,7 @@ const AddEvent = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<Inputs>();
 
@@ -45,6 +46,7 @@ const AddEvent = () => {
             .then((data) => {
               if (data.success) {
                 toast.success("Successfully created event!");
+                reset();
               }
             })
             .catch((err) => {

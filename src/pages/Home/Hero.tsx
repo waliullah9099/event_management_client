@@ -5,12 +5,17 @@ import HeroImage from "../../assets/Images/Images.png";
 const Hero = () => {
   return (
     <Container className="pt-12">
-      <div className="flex flex-col lg:flex-row justify-center items-center gap-3">
+      <div
+        data-aos="fade-up"
+        className="flex flex-col lg:flex-row justify-center items-center gap-3"
+      >
         <div className="w-[50%]">
           <h1 className="text-secondary font-semibold lg:font-bold text-3xl lg:text-5xl uppercase pb-7">
             Best Event Management Firm
           </h1>
-          <Button className="w-48 h-12 text-lg">Explore</Button>
+          <Button data-aos="flip-up" className="w-48 h-12 text-lg">
+            Explore
+          </Button>
         </div>
         <div className="w-[48%]">
           <p>
@@ -22,7 +27,7 @@ const Hero = () => {
           </p>
         </div>
       </div>
-      <div className="mt-12">
+      <div data-aos="fade-up " className="mt-12">
         <img className="h-[615px]" src={HeroImage} alt="" />
       </div>
     </Container>
