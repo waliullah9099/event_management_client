@@ -200,22 +200,3 @@
   margin-right: 70px;
   background-color: #0b63e5;
 }
-
-/* Responsive styles */
-/* @media screen and (max-width: 768px) {
-  .slick-slider .slick-prev {
-    margin-left: 80%;
-  }
-  .slick-slider .slick-next {
-    margin-right: 50px;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  .slick-slider .slick-prev {
-    margin-left: 70%;
-  }
-  .slick-slider .slick-next {
-    margin-right: 30px;
-  }
-} */

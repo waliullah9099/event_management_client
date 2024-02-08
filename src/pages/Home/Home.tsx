@@ -8,7 +8,6 @@ import Price from "./Price";
 import RecentEvents from "./RecentEvents";
 import Reviews from "./Reviews";
 import Services from "./Services";
-import Test from "./Test";
 import UpcommingEvent from "./UpcommingEvent";
 
 const Home = () => {
@@ -19,7 +18,6 @@ const Home = () => {
       </div>
       <Services />
       <Events />
-      <Test />
       <Price />
       <Gallery />
       <RecentEvents />

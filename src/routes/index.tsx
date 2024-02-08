@@ -10,8 +10,6 @@ import UpdatedSerices from "@/pages/Admin/UpdatedService";
 import Home from "@/pages/Home/Home";
 import { Navigate, createBrowserRouter } from "react-router-dom";
 import UpdateEvent from "@/pages/Admin/event/UpdateEvent";
-import AddRecentEvent from "@/pages/Admin/recentEvent/AddRecentEvent";
-import RecetnEvents from "@/pages/Admin/recentEvent/RecentEvent";
 
 const router = createBrowserRouter([
   {
@@ -44,14 +42,6 @@ const router = createBrowserRouter([
       {
         path: "add-event",
         element: <AddEvent />,
-      },
-      {
-        path: "recent-events",
-        element: <RecetnEvents />,
-      },
-      {
-        path: "add-recent-event",
-        element: <AddRecentEvent />,
       },
       {
         path: "update-event",

@@ -2,6 +2,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import toast from "react-hot-toast";
+import { useMutation } from "@tanstack/react-query";
 
 type Inputs = {
   title: string;
@@ -15,6 +16,24 @@ const AddEvent = () => {
     reset,
     formState: { errors },
   } = useForm<Inputs>();
+
+  const { mutate } = useMutation({
+    mutationFn: async (data) => {
+      return await fetch(
+        "https://event-management-server-bice.vercel.app/api/events/create-event",
+        {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: {
+            "content-type": "application/json",
+          },
+        }
+      );
+    },
+    onSuccess: () => {
+      toast.success("Successfully created event!");
+    },
+  });
 
   const image_hosting_url =
     "https://api.imgbb.com/1/upload?key=00af13fcf3746f5d1b5cb9448a7a33df";
@@ -34,38 +53,9 @@ const AddEvent = () => {
           const { title } = data;
           const newItem = { title, image: imgURL };
           // console.log(newItem);
-
-          fetch("http://localhost:5000/api/events/create-event", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(newItem),
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              if (data.success) {
-                toast.success("Successfully created event!");
-                reset();
-              }
-            })
-            .catch((err) => {
-              console.log(err);
-            });
+          mutate(newItem);
         }
       });
-
-    // const { mutateAsync, isError, isSuccess } = useMutation({
-    //   mutationFn: async (data) => {
-    //     return await fetch("http://localhost:5000/api/v1/services", {
-    //       method: "POST",
-    //       body: JSON.stringify(data),
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //     });
-    //   },
-    // })
   };
 
   return (

@@ -1,24 +1,23 @@
 import Container from "@/components/shared/Container";
 import TittleSection from "@/components/shared/TittleSection";
 import { IoIosCheckmark } from "react-icons/io";
-import { useEffect, useState } from "react";
+import { useGetServices } from "@/api/service/service.hook";
 
 type TServiceType = {
-  _id: string;
+  id: string;
   title: string;
   image: string;
   description: string[];
 };
 
 const Services = () => {
-  const [services, setServices] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:5000/api/services")
-      .then((res) => res.json())
-      .then((data) => {
-        setServices(data.data);
-      });
-  }, []);
+  const { data: services, isLoading, isError } = useGetServices();
+  if (isLoading) {
+    return <p>Loading....</p>;
+  }
+  if (isError) {
+    return <p>Something went wrong......</p>;
+  }
 
   return (
     <Container className="my-6">
@@ -32,7 +31,7 @@ const Services = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-2">
         {services.slice(0, 3).map((service: TServiceType) => (
           <div
-            key={service._id}
+            key={service.id}
             data-aos="flip-left"
             data-aos-easing="ease-out-cubic"
             data-aos-duration="1000"

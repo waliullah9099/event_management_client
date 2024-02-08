@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import {
   Table,
@@ -11,37 +10,46 @@ import {
 import { Edit, Trash2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useGetServices } from "@/api/service/service.hook";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 type TServiceType = {
-  _id: HTMLFormElement;
+  id: string;
   title: string;
   image: string;
 };
 
 const Services = () => {
-  const [services, setServices] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:5000/api/services")
-      .then((res) => res.json())
-      .then((data) => {
-        setServices(data.data);
-      });
-  }, []);
+  const { data: servicesData, isLoading, isError } = useGetServices();
+  const queryClient = useQueryClient();
 
-  const handleDelete = (id: HTMLFormElement) => {
-    fetch(`http://localhost:5000/api/services/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.success) {
-          const remaining = services.filter(
-            (item: HTMLFormElement) => item._id !== id
-          );
-          setServices(remaining);
-          toast.success(`service deleted Successfully!`);
+  const { mutate } = useMutation({
+    mutationFn: async (id) => {
+      return await fetch(
+        `https://event-management-server-bice.vercel.app/api/services/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "content-type": "application/json",
+          },
         }
-      });
+      );
+    },
+    onSuccess: () => {
+      toast.success("Successfully deleted service!");
+      queryClient.invalidateQueries({ queryKey: ["services"] });
+    },
+  });
+
+  if (isLoading) {
+    return <p>Loading....</p>;
+  }
+  if (isError) {
+    return <p>Something went wrong......</p>;
+  }
+
+  const handleDelete = (id: string) => {
+    mutate(id);
   };
 
   const handleUpdated = (service: HTMLFormElement) => {
@@ -73,7 +81,7 @@ const Services = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {services.map((service: TServiceType, index) => (
+          {servicesData.map((service: TServiceType, index: number) => (
             <TableRow key={index}>
               <TableCell className="font-medium">{index + 1}</TableCell>
               <TableCell className="text-lg">{service?.title}</TableCell>
@@ -84,14 +92,14 @@ const Services = () => {
                   alt=""
                 />
               </TableCell>
-              <TableCell onClick={() => handleUpdated(service._id)}>
+              <TableCell onClick={() => handleUpdated(service.id)}>
                 {/* <NavLink to="/admin/update-service"> */}
                 <Edit className="size-8 bg-blue-600 text-white p-2 rounded-sm " />
                 {/* </NavLink> */}
               </TableCell>
               <TableCell>
                 <Trash2
-                  onClick={() => handleDelete(service._id)}
+                  onClick={() => handleDelete(service.id)}
                   className="size-8 bg-red-600 text-white p-2 rounded-sm ml-3"
                 />
               </TableCell>

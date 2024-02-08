@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <div className="bg-light-gray">
       <Container>
-        <nav className="h-20 flex items-center justify-between">
+        <nav className="h-20 flex flex-col md:flex-row items-center justify-between">
           <NavLink to="/" className="text-2xl font-bold">
             Event <span className="text-primary truncate">360</span>
           </NavLink>

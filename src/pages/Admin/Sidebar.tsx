@@ -39,20 +39,6 @@ const Sidebar = () => {
         </NavLink>
 
         <NavLink
-          to="/admin/recent-events"
-          className={({ isActive }) =>
-            cn(
-              "flex gap-2 items-center bg-gray-400 p-3 rounded-sm hover:bg-dark-gray hover:text-white transition-all",
-              {
-                "bg-dark-gray text-white": isActive,
-              }
-            )
-          }
-        >
-          <SiEventstore className="text-xl" />
-          <span className="font-semibold">Recent Event</span>
-        </NavLink>
-        <NavLink
           to="/admin/services"
           className={({ isActive }) =>
             cn(

@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import {
   Table,
@@ -11,41 +10,50 @@ import {
 import { Edit, Trash2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useGetEvents } from "@/api/event/event.hook";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 type TEventType = {
-  _id: HTMLFormElement;
+  id: string;
   title: string;
   image: string;
 };
 
 const Events = () => {
-  const [events, setEvents] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:5000/api/events")
-      .then((res) => res.json())
-      .then((data) => {
-        setEvents(data.data);
-      });
-  }, []);
+  const { data: events, isLoading, isError } = useGetEvents();
+  const queryClient = useQueryClient();
+
+  const { mutate } = useMutation({
+    mutationFn: async (id) => {
+      return await fetch(
+        `https://event-management-server-bice.vercel.app/api/events/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "content-type": "application/json",
+          },
+        }
+      );
+    },
+    onSuccess: () => {
+      toast.success("Successfully deleted event!");
+      queryClient.invalidateQueries({ queryKey: ["events"] });
+    },
+  });
+
+  if (isLoading) {
+    return <p>Loading....</p>;
+  }
+  if (isError) {
+    return <p>Something went wrong......</p>;
+  }
 
   const handleUpdated = (event: HTMLFormElement) => {
     console.log(event);
   };
 
-  const handleDelete = (id: HTMLFormElement) => {
-    fetch(`http://localhost:5000/api/events/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.success) {
-          const remaining = events.filter(
-            (item: HTMLFormElement) => item._id !== id
-          );
-          setEvents(remaining);
-          toast.success(`event deleted Successfully!`);
-        }
-      });
+  const handleDelete = (id: string) => {
+    mutate(id);
   };
 
   return (
@@ -73,7 +81,7 @@ const Events = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {events.map((event: TEventType, index) => (
+          {events.map((event: TEventType, index: number) => (
             <TableRow key={index}>
               <TableCell className="font-medium">{index + 1}</TableCell>
               <TableCell className="text-lg">{event?.title}</TableCell>
@@ -89,7 +97,7 @@ const Events = () => {
                 <Edit className="size-8 bg-blue-600 text-white p-2 rounded-sm " />
                 {/* </NavLink> */}
               </TableCell>
-              <TableCell onClick={() => handleDelete(event._id)}>
+              <TableCell onClick={() => handleDelete(event.id)}>
                 <Trash2 className="size-8 bg-red-600 text-white p-2 rounded-sm ml-3" />
               </TableCell>
             </TableRow>
