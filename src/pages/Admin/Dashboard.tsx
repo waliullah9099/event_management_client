@@ -1,23 +1,26 @@
-import { useEffect, useState } from "react";
+import { useGetEvents } from "@/api/event/event.hook";
+import { useGetServices } from "@/api/service/service.hook";
 
 const Dashboard = () => {
-  const [services, setServices] = useState([]);
-  const [events, setEvents] = useState([]);
+  const {
+    data: events,
+    isLoading: eventLoading,
+    isError: eventErr,
+  } = useGetEvents();
+  const { data: servicesData, isLoading, isError } = useGetServices();
 
-  useEffect(() => {
-    fetch("http://localhost:5000/api/events")
-      .then((res) => res.json())
-      .then((data) => {
-        setEvents(data.data);
-      });
-  }, []);
-  useEffect(() => {
-    fetch("http://localhost:5000/api/services")
-      .then((res) => res.json())
-      .then((data) => {
-        setServices(data.data);
-      });
-  }, []);
+  if (eventLoading) {
+    return <p>Loading....</p>;
+  }
+  if (eventErr) {
+    return <p>Something went wrong......</p>;
+  }
+  if (isLoading) {
+    return <p>Loading....</p>;
+  }
+  if (isError) {
+    return <p>Something went wrong......</p>;
+  }
 
   return (
     <div className="flex flex-col md:flex-row gap-3 justify-between">
@@ -25,7 +28,7 @@ const Dashboard = () => {
         <div className="font-bold text-3xl space-y-4">
           <h1>Services </h1>
           <h1>
-            Total: <span className="text-primary">{services.length}</span>{" "}
+            Total: <span className="text-primary">{servicesData.length}</span>{" "}
           </h1>
         </div>
       </div>

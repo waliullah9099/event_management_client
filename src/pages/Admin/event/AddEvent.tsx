@@ -19,7 +19,7 @@ const AddEvent = () => {
   const { mutate } = useMutation({
     mutationFn: async (data) => {
       return await fetch(
-        "http://localhost:5000/api/recent-events/create-event",
+        "https://event-management-server-bice.vercel.app/api/recent-events/create-event",
         {
           method: "POST",
           body: JSON.stringify(data),

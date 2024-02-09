@@ -48,10 +48,6 @@ const Events = () => {
     return <p>Something went wrong......</p>;
   }
 
-  const handleUpdated = (event: HTMLFormElement) => {
-    console.log(event);
-  };
-
   const handleDelete = (id: string) => {
     mutate(id);
   };
@@ -92,10 +88,8 @@ const Events = () => {
                   alt=""
                 />
               </TableCell>
-              <TableCell onClick={() => handleUpdated(event)}>
-                {/* <NavLink to="/admin/update-event"> */}
+              <TableCell>
                 <Edit className="size-8 bg-blue-600 text-white p-2 rounded-sm " />
-                {/* </NavLink> */}
               </TableCell>
               <TableCell onClick={() => handleDelete(event.id)}>
                 <Trash2 className="size-8 bg-red-600 text-white p-2 rounded-sm ml-3" />

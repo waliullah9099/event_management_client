@@ -52,10 +52,6 @@ const Services = () => {
     mutate(id);
   };
 
-  const handleUpdated = (service: HTMLFormElement) => {
-    console.log(service);
-  };
-
   return (
     <div className="p-4 border-1 shadow-md">
       <div className="my-4 space-x-6">
@@ -92,10 +88,8 @@ const Services = () => {
                   alt=""
                 />
               </TableCell>
-              <TableCell onClick={() => handleUpdated(service.id)}>
-                {/* <NavLink to="/admin/update-service"> */}
+              <TableCell>
                 <Edit className="size-8 bg-blue-600 text-white p-2 rounded-sm " />
-                {/* </NavLink> */}
               </TableCell>
               <TableCell>
                 <Trash2

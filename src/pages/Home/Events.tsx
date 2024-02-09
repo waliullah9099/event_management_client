@@ -24,7 +24,7 @@ const Events = () => {
         decs="Ut posuere felis arcu tellus tempus in in ultricies. Gravida id nibh ornare viverra. Ultrices faucibus neque velit risus ac id lorem."
       />
       <div className="grid grid-cols-12 gap-3">
-        <div className="col-span-12 lg:col-span-8 grid grid-cols-12 gap-3">
+        <div className="col-span-12 lg:col-span-8 grid grid-cols-12 gap-2">
           <div data-aos="fade-up" className="event-item">
             {events.slice(0, 6).map((item: TEventType, index: number) => (
               <div key={index}>{index === 0 && <img src={item.image} />}</div>
