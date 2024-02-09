@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className="bg-[#334155]">
       <Container>
-        <div className="flex justify-between gap-4 py-8">
+        <div className="flex flex-col md:flex-row justify-between gap-4 py-8">
           <div>
             <h1 className="text-2xl text-white font-bold">
               Event <span className="text-primary">360</span>

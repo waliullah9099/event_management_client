@@ -25,32 +25,37 @@ const Events = () => {
       />
       <div className="grid grid-cols-12 gap-3">
         <div className="col-span-12 lg:col-span-8 grid grid-cols-12 gap-3">
-          <div className="col-span-6 bg-light-gray rounded-md p-3">
+          <div data-aos="fade-up" className="event-item">
             {events.slice(0, 6).map((item: TEventType, index: number) => (
               <div key={index}>{index === 0 && <img src={item.image} />}</div>
             ))}
             <p className="text-black text-xl pt-2">TED Conference</p>
           </div>
-          <div className="col-span-6 bg-light-gray rounded-md p-3">
+          <div data-aos="fade-up" className="event-item">
             {events.slice(0, 6).map((item: TEventType, index: number) => (
               <div key={index}>{index === 1 && <img src={item.image} />}</div>
             ))}
             <p className="text-black text-xl pt-2">Super Bowl</p>
           </div>
 
-          <div className="col-span-3 bg-light-gray rounded-md p-3">
+          <div className="col-span-6 mx-auto lg:col-span-3 bg-light-gray rounded-md p-3">
             {events.slice(0, 6).map((item: TEventType, index: number) => (
               <div key={index}>{index === 2 && <img src={item.image} />}</div>
             ))}
             <p className="text-black text-xl pt-2">Electronics Show</p>
           </div>
-          <div className="col-span-3 bg-light-gray rounded-md p-3">
+
+          <div
+            data-aos="fade-up"
+            className="col-span-6 mx-auto lg:col-span-3 bg-light-gray rounded-md p-3"
+          >
             {events.slice(0, 6).map((item: TEventType, index: number) => (
               <div key={index}>{index === 3 && <img src={item.image} />}</div>
             ))}
             <p className="text-black text-xl pt-2">Oktoberfest</p>
           </div>
-          <div className="col-span-6 bg-light-gray rounded-md p-3">
+
+          <div data-aos="fade-up" className="event-item">
             {events.slice(0, 6).map((item: TEventType, index: number) => (
               <div key={index}>{index === 4 && <img src={item.image} />}</div>
             ))}
@@ -58,7 +63,10 @@ const Events = () => {
           </div>
         </div>
 
-        <div className="col-span-12 lg:col-span-4 bg-light-gray rounded-md p-3">
+        <div
+          data-aos="fade-right"
+          className="col-span-12 lg:col-span-4 bg-light-gray mx-auto rounded-md p-3"
+        >
           {events.slice(0, 6).map((item: TEventType, index: number) => (
             <div key={index}>{index === 5 && <img src={item.image} />}</div>
           ))}

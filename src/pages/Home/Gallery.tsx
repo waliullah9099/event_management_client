@@ -20,24 +20,88 @@ const Gallery = () => {
         title="Gallery"
         decs="Ut posuere felis arcu tellus tempus in in ultricies. Gravida id nibh ornare viverra. Ultrices faucibus neque velit risus ac id lorem.Ut posuere felis arcu tellus tempus in in ultricies. Gravida id nibh ornare viverra. Ultrices faucibus neque velit risus ac id lorem."
       />
-      <div className="grid grid-cols-7 w-[98%] justify-center items-center mx-auto py-8 ">
-        <img data-aos="fade-down-right" src={image1} alt="" />
-        <div data-aos="zoom-out-up" className="row-span-2 flex items-center">
+      <div className="grid grid-cols-3 lg:grid-cols-7 gap-4 w-[98%] justify-center items-center mx-auto py-8 ">
+        <img
+          data-aos="fade-down-right"
+          src={image1}
+          alt=""
+          className="md:col-span-1 lg:col-span-1"
+        />
+        <div
+          data-aos="zoom-out-up"
+          className="md:col-span-1 lg:col-span-1 row-span-2 flex items-center"
+        >
           <img src={image4} alt="" />
         </div>
-        <img data-aos="fade-up" data-aos-duration="1000" src={image5} alt="" />
-        <img data-aos="fade-up" data-aos-duration="1000" src={image8} alt="" />
-        <img data-aos="fade-up" data-aos-duration="1000" src={image10} alt="" />
-        <div data-aos="zoom-out-up" className="row-span-2 flex items-center">
+        <img
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          src={image5}
+          alt=""
+          className="md:col-span-1 lg:col-span-1"
+        />
+        <img
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          src={image8}
+          alt=""
+          className="md:col-span-1 lg:col-span-1"
+        />
+        <img
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          src={image10}
+          alt=""
+          className="md:col-span-1 lg:col-span-1"
+        />
+        <div
+          data-aos="zoom-out-up"
+          className="md:col-span-1 lg:col-span-1 row-span-2 flex items-center"
+        >
           <img src={image7} alt="" />
         </div>
-        <img data-aos="fade-up" data-aos-duration="1000" src={image12} alt="" />
-        <img data-aos="fade-up" data-aos-duration="1000" src={image2} alt="" />
-        <img data-aos="fade-up" data-aos-duration="1000" src={image6} alt="" />
-        <img data-aos="fade-up" data-aos-duration="1000" src={image9} alt="" />
-        <img data-aos="fade-up" data-aos-duration="1000" src={image11} alt="" />
+        <img
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          src={image12}
+          alt=""
+          className="md:col-span-1 lg:col-span-1"
+        />
+        <img
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          src={image2}
+          alt=""
+          className="md:col-span-1 lg:col-span-1"
+        />
+        <img
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          src={image6}
+          alt=""
+          className="md:col-span-1 lg:col-span-1"
+        />
+        <img
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          src={image9}
+          alt=""
+          className="md:col-span-1 lg:col-span-1"
+        />
+        <img
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          src={image11}
+          alt=""
+          className="md:col-span-1 lg:col-span-1"
+        />
 
-        <img data-aos="fade-down-left" src={image13} alt="" />
+        <img
+          data-aos="fade-down-left"
+          src={image13}
+          alt=""
+          className="md:col-span-1 lg:col-span-1"
+        />
       </div>
     </Container>
   );

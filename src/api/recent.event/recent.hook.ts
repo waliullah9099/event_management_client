@@ -1,16 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
-import { getEvents } from "./event.api";
-
+import { getRecentEvents } from "../recent.api";
 type TEventType = {
   _id: string;
   title: string;
   image: string;
 };
 
-export const useGetEvents = () => {
+export const useGetRecentEvents = () => {
   const servicesData = useQuery({
-    queryKey: ["recents"],
-    queryFn: getEvents,
+    queryKey: ["events"],
+    queryFn: getRecentEvents,
 
     select: (data) => {
       const events = data.data.map((item: TEventType) => ({

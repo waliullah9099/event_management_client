@@ -13,14 +13,13 @@ const AddEvent = () => {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm<Inputs>();
 
   const { mutate } = useMutation({
     mutationFn: async (data) => {
       return await fetch(
-        "https://event-management-server-bice.vercel.app/api/events/create-event",
+        "http://localhost:5000/api/recent-events/create-event",
         {
           method: "POST",
           body: JSON.stringify(data),

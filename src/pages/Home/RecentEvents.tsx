@@ -1,13 +1,23 @@
+import { useGetRecentEvents } from "@/api/recent.event/recent.hook";
 import Container from "@/components/shared/Container";
 import { Button } from "@/components/ui/button";
-import image1 from "../../assets/Images/event//Rectangle 181.png";
-import image2 from "../../assets/Images/event/Rectangle 182.png";
-import image3 from "../../assets/Images/event/Rectangle 183.png";
-import image4 from "../../assets/Images/event/Rectangle 184.png";
-import image5 from "../../assets/Images/event/Rectangle 185.png";
-import image6 from "../../assets/Images/event/Rectangle 186.png";
+
+type TEventRecentType = {
+  id: string;
+  title: string;
+  image: string;
+};
 
 const RecentEvents = () => {
+  const { data: events, isLoading, isError } = useGetRecentEvents();
+
+  if (isLoading) {
+    return <p>Loading....</p>;
+  }
+  if (isError) {
+    return <p>Something went wrong......</p>;
+  }
+
   return (
     <Container className="grid grid-cols-1 lg:grid-cols-2 my-16 items-center">
       <div
@@ -33,12 +43,9 @@ const RecentEvents = () => {
         data-aos-anchor-placement="top-center"
         className="grid grid-cols-3 gap-4"
       >
-        <img src={image5} alt="" />
-        <img src={image4} alt="" />
-        <img src={image1} alt="" />
-        <img src={image2} alt="" />
-        <img src={image3} alt="" />
-        <img src={image6} alt="" />
+        {events.map((item: TEventRecentType, index: number) => (
+          <img key={index} src={item.image} alt="" />
+        ))}
       </div>
     </Container>
   );

@@ -78,6 +78,9 @@
   body {
     @apply bg-background text-foreground;
   }
+  .event-item {
+    @apply col-span-12 mx-auto md:col-span-6 bg-light-gray rounded-md p-3;
+  }
   .service-icon {
     @apply text-green-400 text-2xl mt-[5px] w-5 h-5 bg-white rounded-full;
   }

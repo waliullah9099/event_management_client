@@ -13,13 +13,16 @@ const Clients = () => {
         We have <span className="text-primary">23k+</span> Satisfied & Trusted
         Custome
       </h1>
-      <div data-aos="zoom-in" className="flex justify-between pt-4">
-        <img src={image3} alt="" />
-        <img src={image2} alt="" />
-        <img src={image4} alt="" />
-        <img src={image5} alt="" />
-        <img src={image7} alt="" />
-        <img src={image1} alt="" />
+      <div
+        data-aos="zoom-in"
+        className="flex flex-col md:flex-row justify-between pt-4"
+      >
+        <img className="p-4" src={image3} alt="" />
+        <img className="p-4" src={image2} alt="" />
+        <img className="p-4" src={image4} alt="" />
+        <img className="p-4" src={image5} alt="" />
+        <img className="p-4" src={image7} alt="" />
+        <img className="p-4" src={image1} alt="" />
       </div>
     </Container>
   );
