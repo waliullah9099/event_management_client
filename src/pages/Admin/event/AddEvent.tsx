@@ -19,7 +19,7 @@ const AddEvent = () => {
   const { mutate } = useMutation({
     mutationFn: async (data) => {
       return await fetch(
-        "https://event-management-server-bice.vercel.app/api/recent-events/create-event",
+        "https://event-management-server-bice.vercel.app/api/events/create-event",
         {
           method: "POST",
           body: JSON.stringify(data),
@@ -89,7 +89,7 @@ const AddEvent = () => {
         </div>
 
         <Button variant="outline" className="shadow-sm">
-          Add Service
+          Add Event
         </Button>
       </form>
     </div>
