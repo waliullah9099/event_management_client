@@ -29,7 +29,7 @@ npm run dev
 
 ##### Then check how to work this project in browser
 
-###### User Related Home Page
+###### Home Page and Dashboard
 
 Show home page in browser
 
@@ -58,6 +58,10 @@ Create A new event to Click ## Add Event ## Button
 
 ```
 
+Update A Single event to click ## Edit icon
+
+Delete A Single event to click ## Delete icon
+
 Show all services
 
 ```bash
@@ -71,3 +75,7 @@ Create A new service to Click ## Add Service ## Button
 http://localhost:5173/admin/add-service
 
 ```
+
+Update A Single service to click ## Edit icon
+
+Delete A Single service to click ## Delete icon
